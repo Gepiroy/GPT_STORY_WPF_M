@@ -1,0 +1,31 @@
+﻿<Window x:Class="GPT_STORY_WPF_M.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GPT_STORY_WPF_M"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="2*"/>
+            <ColumnDefinition Width ="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="Chat"/>
+            <ScrollViewer Height="300">
+                <TextBox TextWrapping="Wrap" Text="" IsReadOnly="True" x:Name="chatTextBlock"/>
+            </ScrollViewer>
+            <Label Content="Prompt"/>
+            <TextBox TextWrapping="Wrap" Text="TextBox" HorizontalAlignment="Stretch" x:Name="chatPromptBox" KeyUp="chatPromptBox_KeyUp"/>
+
+            <Button Content="Create chat" HorizontalAlignment="Right" Click="Button_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Label Content="Log"/>
+            <ScrollViewer Height="400">
+                <TextBlock TextWrapping="Wrap" Text="TextBlock" x:Name="logTextBlock"/>
+            </ScrollViewer>
+        </StackPanel>
+    </Grid>
+</Window>
