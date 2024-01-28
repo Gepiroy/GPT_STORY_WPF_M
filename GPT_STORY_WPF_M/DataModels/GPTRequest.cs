@@ -9,6 +9,7 @@ namespace GPT_STORY_WPF_M.DataModels
     internal class GPTRequest
     {
         public string prompt { get; set; }
-        public int max_tokens { get; set; }
+        public int max_tokens { get; set; } = 200;
+        public double repetition_penalty { get; set; } = 1.15;
     }
 }

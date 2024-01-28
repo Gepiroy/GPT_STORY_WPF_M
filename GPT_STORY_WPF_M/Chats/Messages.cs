@@ -1,4 +1,6 @@
-﻿namespace GPT_STORY_WPF_M.Chats
+﻿using GPT_STORY_WPF_M.UI;
+
+namespace GPT_STORY_WPF_M.Chats
 {
     public class Messages
     {
@@ -10,13 +12,17 @@
         public void add(Message message)
         {
             messages.Add(message);
-            string st = "";
+            UIThread.run(() =>
+            {
+                MainWindow.Instance.chatScroll.Children.Add(new MessageControl(message));
+            });
+            /*string st = "";
             foreach (Message m in messages)
             {
                 st += $"\n        -    -    -    -    -   {m.from}'s {m.type}\n";
                 st += m.raw;
             }
-            UIThread.run(() => MainWindow.Instance.chatTextBlock.Text = st);
+            UIThread.run(() => MainWindow.Instance.chatTextBlock.Text = st);*/
         }
         public Message last()
         {

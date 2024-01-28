@@ -16,22 +16,23 @@ namespace GPT_STORY_WPF_M
         public static void init()
         {
             client.DefaultRequestHeaders.Add(HttpRequestHeader.ContentType.ToString(), "application/json;charset=utf-8");
+            client.Timeout = new TimeSpan(0, 20, 0);
         }
 
         public static string send(string prompt)
         {
             string ret = "error: in Fetch.cs, ret hasn't changed.";
 
-            Logger.log("Sending prompt...");
+            Logger.log("Sending prompt... ");
 
             var content = JsonContent.Create(new GPTRequest { prompt = prompt, max_tokens = 400 });
 
             var task = client.PostAsync(resourceUrl, content);
-            task.Wait();
+            task.Wait(1000*60*60); //1 hour timeout
 
             var response = task.Result;
 
-            Logger.log("Got an result...");
+            Logger.logn("Got result.");
 
             if (response.StatusCode == HttpStatusCode.OK)
             {
@@ -48,10 +49,8 @@ namespace GPT_STORY_WPF_M
             }
             else
             {
-                Logger.log("Status code is NOT OK: " + response);
+                Logger.logn("Status code is NOT OK: " + response);
             }
-
-            Logger.log("Returning result.");
 
             return ret;
         }

@@ -6,11 +6,19 @@ namespace GPT_STORY_WPF_M
     {
         private static string logged = "";
 
-        public static void log(string message)
+        public static void logn(string message)
         {
             logged += message + "\n";
             UIThread.run(() => { MainWindow.Instance.logTextBlock.Text = logged; });
             
+            Console.WriteLine("Logged: " + message);
+        }
+
+        public static void log(string message)
+        {
+            logged += message;
+            UIThread.run(() => { MainWindow.Instance.logTextBlock.Text = logged; });
+
             Console.WriteLine("Logged: " + message);
         }
     }

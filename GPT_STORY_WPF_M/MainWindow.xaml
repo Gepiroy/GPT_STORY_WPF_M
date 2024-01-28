@@ -14,7 +14,9 @@
         <StackPanel Grid.Column="0">
             <Label Content="Chat"/>
             <ScrollViewer Height="300">
-                <TextBox TextWrapping="Wrap" Text="" IsReadOnly="True" x:Name="chatTextBlock"/>
+                <StackPanel x:Name="chatScroll">
+                    <!--TextBox TextWrapping="Wrap" Text="" IsReadOnly="True" x:Name="chatTextBlock"/-->
+                </StackPanel>
             </ScrollViewer>
             <Label Content="Prompt"/>
             <TextBox TextWrapping="Wrap" Text="TextBox" HorizontalAlignment="Stretch" x:Name="chatPromptBox" KeyUp="chatPromptBox_KeyUp"/>

@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="GPT_STORY_WPF_M.UI.MessageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GPT_STORY_WPF_M.UI"
+             mc:Ignorable="d" 
+             d:DesignWidth="400" d:Background="White"
+             BorderThickness="0 0 0 1" BorderBrush="Gray">
+    <Grid>
+        <StackPanel Margin="2">
+            <TextBlock x:Name="type" Text="Someone's action" Foreground="Gray" HorizontalAlignment="Right"/>
+            <TextBox BorderThickness="0" x:Name="message" IsReadOnly="True" TextWrapping="Wrap" Text="The message should be long. It's no matter what exactly has been written, but it probably should be something demonstrative long."/>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>
